@@ -1,0 +1,175 @@
+header {
+    position: fixed;
+    z-index: 9;
+    mix-blend-mode: difference;
+    padding: 15px 0 0;
+    width: 100%;
+
+    @include tablet {
+        padding: 15px 20px 0px 20px;
+    }
+
+    @include mobile {
+        padding: 15px;
+        width: 100vw;
+    }
+
+    .nav-list {
+        display: flex;
+        list-style: none;
+    }
+    .nav-item {
+        flex: 1;
+        padding-left: 20px;
+
+        @include tablet {
+            &:nth-child(2),
+            &:nth-child(3),
+            &:nth-child(4) {
+                opacity: 0;
+                display: none;
+            }
+        }
+
+        @include mobile {
+            padding: 0;
+        }
+
+        &.tablet {
+            display: none;
+        }
+        @include tablet {
+            &.tablet {
+                // display: block;
+                display: flex;
+                justify-content: end;
+
+                .bracket-after {
+                    left: 92px !important;
+                }
+            }
+        }
+    }
+    .link-menu {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        position: relative;
+        width: min-content;
+    }
+    .bracket {
+        &-before,
+        &-after {
+            position: absolute;
+            height: 100%;
+            width: 9px;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        &-before {
+            left: 0;
+            background-image: url(../images/icon/nav-left.svg);
+        }
+        &-after {
+            transition: 0.5s;
+            left: 32px;
+            background-image: url(../images/icon/nav-right.svg);
+            &.right {
+                transition: 0.5s;
+                row-gap: 0;
+                left: 95%;
+            }
+        }
+        &-content {
+            display: flex;
+            height: min-content;
+            justify-content: center;
+            overflow: hidden;
+            padding: 0px 12px;
+            position: relative;
+            span {
+                display: inline-block;
+                font-size: 30px;
+            }
+        }
+        &-textbox2 {
+            width: 0;
+            opacity: 0;
+            transition: 0.3s;
+            white-space: nowrap;
+        }
+    }
+
+    .menu-wrap {
+        color: #fff;
+        position: fixed;
+        width: 100%;
+        z-index: 5;
+        height: 100%;
+        top: 100%;
+        background: black;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        @include desktop {
+            flex-direction: column;
+        }
+
+        left: 0;
+        .right {
+            padding-top: 20rem;
+            flex: 1 1;
+            height: 100%;
+            @include desktop {
+                display: none;
+            }
+        }
+        .nav2 {
+            padding-top: 20rem;
+            flex: 1 1;
+            height: 100%;
+        }
+
+        .nav2-wrap {
+            padding: 0px 20px;
+            .link-wrap {
+                margin-bottom: 0rem;
+                overflow: hidden;
+                margin-bottom: 20px;
+                a {
+                    transform: translateY(100%);
+                    font-size: 7rem;
+                    line-height: 100%;
+                    letter-spacing: -0.5px;
+                    font-weight: 500;
+
+                    display: block;
+                    color: #585654;
+                }
+                a.link-gin {
+                    color: #dcd7d2;
+                }
+            }
+
+            .nav2-list {
+                margin-top: 9rem;
+                .nav2-item {
+                    line-height: 100%;
+                    letter-spacing: 0em;
+                    margin-bottom: 3rem;
+                    position: relative;
+                    overflow: hidden;
+                    a {
+                        transform: translateY(100%);
+                        display: block;
+                        font-size: 5rem;
+                        font-weight: 300;
+                        letter-spacing: -0.2px;
+                    }
+                }
+            }
+        }
+    }
+}
